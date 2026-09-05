@@ -1,6 +1,5 @@
 """
-CodeAlpha Machine Learning Internship
-Task 4: Disease Prediction from Medical Data
+Disease Prediction from Medical Data
 --------------------------------------------
 Objective : Predict the possibility of disease based on structured
             patient/medical data 
