@@ -1,0 +1,14 @@
+ Disease Prediction from Medical Data
+========================================================================
+
+Dataset: Breast Cancer Wisconsin (Diagnostic), 569 patients, 30 features
+
+Model Comparison (sorted by ROC-AUC):
+
+              Model  Accuracy  Precision   Recall  F1-Score  ROC-AUC  CV Accuracy (mean)  CV Accuracy (std)
+Logistic Regression  0.964912      0.975 0.928571  0.951220 0.996032            0.973626           0.014906
+   SVM (RBF Kernel)  0.973684      1.000 0.928571  0.962963 0.994709            0.971429           0.005383
+      Random Forest  0.973684      1.000 0.928571  0.962963 0.994378            0.960440           0.016447
+            XGBoost  0.964912      1.000 0.904762  0.950000 0.989749            0.971429           0.011207
+
+Best Model: Logistic Regression
