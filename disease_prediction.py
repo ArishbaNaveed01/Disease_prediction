@@ -52,9 +52,9 @@ os.makedirs(OUT_DIR, exist_ok=True)
 RANDOM_STATE = 42
 sns.set_style("whitegrid")
 
-# ---------------------------------------------------------------------
+
 # 1. LOAD DATA
-# ---------------------------------------------------------------------
+
 print("=" * 70)
 print("Loading dataset")
 print("=" * 70)
@@ -73,9 +73,9 @@ print(f"Class balance (1=disease/malignant, 0=no disease/benign):")
 print(df["diagnosis"].value_counts())
 df.to_csv(f"{OUT_DIR}/dataset.csv", index=False)
 
-# ---------------------------------------------------------------------
+
 # 2. EXPLORATORY DATA ANALYSIS 
-# ---------------------------------------------------------------------
+
 print("\n" + "=" * 70)
 print("Exploratory Data Analysis")
 print("=" * 70)
@@ -100,9 +100,9 @@ plt.close()
 
 print("Saved EDA plots: 01_class_distribution.png, 02_correlation_heatmap.png")
 
-# ---------------------------------------------------------------------
+
 # 3. FEATURE ENGINEERING / PREPROCESSING
-# ---------------------------------------------------------------------
+
 print("\n" + "=" * 70)
 print("Preprocessing (train/test split + scaling)")
 print("=" * 70)
@@ -120,9 +120,9 @@ X_test_scaled = scaler.transform(X_test)
 
 print(f"Train set: {X_train.shape[0]} patients | Test set: {X_test.shape[0]} patients")
 
-# ---------------------------------------------------------------------
+
 # 4. MODEL TRAINING - Logistic Regression, SVM, Random Forest, XGBoost
-# ---------------------------------------------------------------------
+
 print("\n" + "=" * 70)
 print(" Training models")
 print("=" * 70)
@@ -188,9 +188,8 @@ for name, model in models.items():
 results_df = pd.DataFrame(results).sort_values("ROC-AUC", ascending=False)
 results_df.to_csv(f"{OUT_DIR}/model_comparison.csv", index=False)
 
-# ---------------------------------------------------------------------
 # 5. MODEL COMPARISON PLOTS
-# ---------------------------------------------------------------------
+
 print("\n" + "=" * 70)
 print("Model comparison")
 print("=" * 70)
@@ -222,9 +221,9 @@ plt.tight_layout()
 plt.savefig(f"{OUT_DIR}/04_roc_curves.png", dpi=150)
 plt.close()
 
-# ---------------------------------------------------------------------
+
 # 6. FEATURE IMPORTANCE (Random Forest & XGBoost)
-# ---------------------------------------------------------------------
+
 print("\n" + "=" * 70)
 print("Feature importance")
 print("=" * 70)
@@ -244,9 +243,8 @@ plt.close()
 best_model_name = results_df.iloc[0]["Model"]
 print(f"\nBest performing model by ROC-AUC: {best_model_name}")
 
-# ---------------------------------------------------------------------
 # 7. SAVE SUMMARY REPORT
-# ---------------------------------------------------------------------
+
 with open(f"{OUT_DIR}/results_summary.txt", "w") as f:
     f.write("CodeAlpha ML Internship - Task 4: Disease Prediction from Medical Data\n")
     f.write("=" * 72 + "\n\n")
